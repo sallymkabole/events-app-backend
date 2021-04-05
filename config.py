@@ -6,7 +6,7 @@ class Config(object):
     TESTING = False
     CSRF_ENABLED = True
     SECRET_KEY = 'this-really-needs-to-be-changed'
-    SQLALCHEMY_DATABASE_URI = os.environ.get('SQLALCHEMY_DATABASE_URI?sslmode=require')
+    SQLALCHEMY_DATABASE_URI = "SQLALCHEMY_DATABASE_URI?sslmode=require"
 
 
 class ProductionConfig(Config):
