@@ -12,7 +12,7 @@ db = SQLAlchemy(app)
 
 
 from models import Event
-@app.route('/events', methods=['POST', 'GET'])
+@app.route('/', methods=['POST', 'GET'])
 def get_or_add_event():
     if request.method == 'POST':
         if request.is_json:
