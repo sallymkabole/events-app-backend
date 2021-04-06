@@ -28,7 +28,7 @@ def get_or_add_event():
         
         try:
             events=Event.query.all()
-            return  jsonify([e.serialize() for e in events])
+            return  jsonify([event.serialize() for event in events])
         except Exception as e:
             return(str(e))
 
