@@ -7,6 +7,7 @@ from flask_cors import CORS
 # instantiate the app
 app = Flask(__name__)
 
+CORS(app, resources={r'/*': {'origins': '*'}})
 
 app.config.from_object(os.environ['APP_SETTINGS'])
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
