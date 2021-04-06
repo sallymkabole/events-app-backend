@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
-import os json
+import os, json
 
 
 # instantiate the app
@@ -25,18 +25,17 @@ def get_or_add_event():
             return {"error": "The request payload is not in JSON format"}
         
     elif request.method == 'GET':
-        events=Event.query.all()
-        results = [
-            {
-                "name": event.name,
-                "location": event.location,
-                "date": event.date
-            } for event in events]
-
-        response= {"events": results}
-        res= Response(json.dumps(response), status=200,mimetype="application/json")
-        return res
         
+        try:
+            events=Event.query.all()
+            return  jsonify([e.serialize() for e in events])
+        except Exception as e:
+            return(str(e))
+
+        
+
+        
+        return json.dumps(events)
 
 
 @app.route('/events/<event_id>', methods=['GET', 'PUT', 'DELETE'])
