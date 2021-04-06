@@ -33,7 +33,7 @@ def get_or_add_event():
                 "date": event.date
             } for event in events]
 
-        return {"count": len(results), "events": results}
+        return results
         
 
 
