@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
-import os
+import os json
 
 
 # instantiate the app
@@ -33,7 +33,9 @@ def get_or_add_event():
                 "date": event.date
             } for event in events]
 
-        return results
+        response= {"events": results}
+        res= Response(json.dumps(response), status=200,mimetype="application/json")
+        return res
         
 
 
