@@ -24,5 +24,5 @@ class Event(db.Model):
             'id': self.id, 
             'name': self.name,
             'location': self.location,
-            'date':dump_date(self.date)
+            'date':self.date
         }
